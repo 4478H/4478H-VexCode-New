@@ -460,6 +460,14 @@ void intakeStop()
   mIntake2.stop(coast);
   mIntake3.stop(coast);
 }
+void intakeDegWait(int degree, int velocit){
+  mIntake.setVelocity(velocit,pct);
+  mIntake2.setVelocity(velocit,pct);
+  mIntake3.setVelocity(velocit,pct);
+  mIntake.spinFor(forward,degree,deg,true);
+  mIntake2.spinFor(forward,degree,deg,true);
+  mIntake3.spinFor(forward,degree,deg,true);
+}
 void intakeDeg(int degree, int velocit){
   mIntake.setVelocity(velocit,pct);
   mIntake2.setVelocity(velocit,pct);

@@ -95,7 +95,24 @@ void blueLeftAuto(int i)
 drivePID(31);
 //Turn to loader
 inert(90);
-// inatke balls
+// intake balls
+intake();
+wait(1,sec);
+//go to long goal
+inert(180);
+drivePID(36);
+//load long goal
+sClamp.set(false);
+intake();
+wait(1,sec);
+intakeStop();
+// get first set middle balls
+drivePID(-1);
+inert(90);
+drivePID(19);
+
+
+
 
 
 

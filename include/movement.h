@@ -20,7 +20,8 @@ void driveInchesClamp(double fwdVal, int veloc);
 void colorSortRed();
 void intake();
 void intakeStop();
-
+void intakeDegWait(int degree, int velocit);
+void intakeDeg(int degree, int velocit);
 // Log Drive
 double logDriveJoystick(double joystickPCT);
 
