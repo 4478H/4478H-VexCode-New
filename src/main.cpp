@@ -123,7 +123,7 @@ void handleIntake()
 {
   if (Controller1.ButtonY.pressing())
   {
-    mIntake.spin(fwd, 70, pct);
+    mIntake.spin(fwd, 100, pct);
     mIntake2.spin(fwd, 100, pct);
     mIntake3.spin(fwd, 100, pct);
   }
