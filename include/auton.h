@@ -4,11 +4,7 @@
 #include <functional>
 
 // Forward declarations of autonomous functions
-void rightAuto(int direction);
-void halfAWP(int direction);
-void blueRightAuto(int direction);
 void skillsAuto(int direction);
-void AWP(int direction);
 void blueLeftAuto(int direction);
 
 // Forward declaration of internal structs/classes
@@ -34,12 +30,7 @@ AutonSelector& getAutonSelector();
 
 // Forward declarations for autonomous routes
 void skillsAuto(int i);
-void blueRightAuto(int i);
 void blueLeftAuto(int i);
-void redleftAuto(int i);
-void rightAuto(int i);
-void AWP(int i);
-void halfAWP(int i);
 void adaptive();
 
 #endif // AUTON_H

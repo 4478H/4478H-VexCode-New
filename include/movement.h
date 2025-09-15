@@ -3,7 +3,6 @@
 
 // General Utilities
 double turnSlew(double val);
-void inertClamp(double t);
 
 // PID Driving
 void drivePID(double inches, double kP = 110, double kI = 0, double kD = 0.15, double goalThreshold = 30);
@@ -15,9 +14,7 @@ void GraphPID(double rangeP, double rangeD, double guessP, double guessD, int sq
 void inert(double target, double kP = 0.499, double kI = 0, double kD = 0.002);
 
 // Open-loop Driving
-void driveInches(double fwdVal, int veloc, bool clamping = false);
-void driveInchesClamp(double fwdVal, int veloc);
-void colorSortRed();
+void driveInches(double fwdVal, int veloc);
 void intake();
 void intakeStop();
 void intakeDegWait(int degree, int velocit);

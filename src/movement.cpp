@@ -84,10 +84,6 @@ void inert(double target, double kP, double kI, double kD)
   }
 }
 
-void inertClamp(double t)
-{
-  inert(t, 0.499, 0.0, 0.002);
-}
 
 void drivePID(double inches, double kP, double kI, double kD, double goalThreshold)
 {
@@ -259,7 +255,7 @@ void tunerDrivePID(double inches, double kP, double kI, double kD, int ID)
   }
 }
 
-void driveInches(double inches, int veloc, bool clamping)
+void driveInches(double inches, int veloc)
 {
 
   // adjusted inches based on gear ratios
@@ -292,24 +288,17 @@ void driveInches(double inches, int veloc, bool clamping)
     // Spin motors in appropriate direction
     allMotors.spin(moveDirection, veloc, pct);
 
-    // Handle slowdown and clamp
+    // Handle slowdown
     double distanceRemaining = fabs(degrs - average);
     if (veloc > 15 && distanceRemaining < slowdownThreshold)
     {
       veloc = veloc * (distanceRemaining / targetDegrees);
-      // Set clamp opposite to current value
-      if (clamping)
-      {
-        sClamp.set(!sClamp.value());
-      }
     }
 
     vex::wait(10, msec);
   }
 }
 
-// alias for clamping mode
-void driveInchesClamp(double inches, int veloc) { driveInches(inches, veloc, true); }
 
 void tunePID()
 {
@@ -426,28 +415,6 @@ void GraphPID(double rangeP, double rangeD, double guessP, double guessD, int sq
   }
 }
 
-
-
-void colorSortRed() // 1 is for red, 2 is for blue
-{
-  mIntake.setVelocity(100, pct);
-  colorSens.setLightPower(100, percent);
-  colorSens.setLight(ledState::on);
-  while (true)
-  {
-    
-    mIntake.spin(fwd, 100, pct);
-    if ((colorSens.hue() > 330 || colorSens.hue() < 45) && colorSens.isNearObject())
-    {
-      // mIntake.spinFor(fwd, 1000, deg);
-      wait(10, msec);
-      mIntake.stop(hold);
-      mIntake.spin(reverse, 100, pct);
-      wait(50, msec);
-    }
-    wait(10, msec);
-  }
-}
 void intake()
 {
   mIntake.spin(fwd,100,pct);

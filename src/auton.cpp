@@ -1,8 +1,8 @@
 /*----------------------------------------------------------------------------*/
 /*                                                                            */
 /*    Module:       auton.cpp                                                 */
-/*    Author:       4478B                                                     */
-/*    Created:      Sat Nov 16 2024                                           */
+/*    Author:       4478H                                                     */
+/*    Created:       2025                                                     */
 /*    Description:  auton selector and auton routes                           */
 /*                                                                            */
 /*----------------------------------------------------------------------------*/
@@ -29,13 +29,7 @@ struct AutonRoutine
 
 // Define the routines array
 static const AutonRoutine ROUTINES[] = {
-    {"Red Goal Side Two Top Rings", rightAuto, 1},      // Route 1
-    {"Red 3 Ring, Ring side", halfAWP, -1},    // Route 2
-    {"Elim Blue 4 Ring, Ring Side ", AWP, 1}, // Route 3
     {"Skills", skillsAuto, 1},         // Route 4
-    {"Elim Red 4 Ring, Ring Side ", AWP, -1},                   // Route 5
-    {"Blue 3 Ring, Ring side", halfAWP, 1},  // Route 6
-    {"Blue Goal Side Two Top Rings", rightAuto, -1}, // Route 7
     {"Red AWP Goal Side, Full Field, 3 Ring", blueLeftAuto, 1}  // Route 8
 };
 
@@ -85,10 +79,6 @@ void skillsAuto(int i)
 {
 
 }
-void blueRightAuto(int i) // i is if its inversed or not (1 = regular, -1 = inversed)
-{
-
-}
 void blueLeftAuto(int i)
 {
 //Drives to Loader
@@ -102,7 +92,8 @@ wait(1,sec);
 inert(180);
 drivePID(36);
 //load long goal
-sClamp.set(false);
+sHood.set(false);
+sHood2.set(false);
 intake();
 wait(1,sec);
 intakeStop();
@@ -110,28 +101,6 @@ intakeStop();
 drivePID(-1);
 inert(90);
 drivePID(19);
-
-
-
-
-
-
-}
-void redleftAuto(int i)
-{
-
-}
-void rightAuto(int i) // inverse is blue left
-{
-  
-}
-void AWP(int i)
-{
- 
-}
-void halfAWP(int i) // this is daniel hand redleft and blueright
-{
-  
 }
 void adaptive(int i)
 {
