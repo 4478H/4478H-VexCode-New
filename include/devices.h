@@ -31,8 +31,9 @@ extern motor_group rightMotors; // group of all right side drive train motors
 extern motor_group allMotors;   // group of all drive train motors
 
 // Digital-out device declarations
-extern digital_out sClamp;
+extern digital_out sHood;
 extern digital_out doinker;
+extern digital_out sHood2;
 extern digital_out sDoor;
 extern digital_out sIntake;
 

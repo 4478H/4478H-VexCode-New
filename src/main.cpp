@@ -21,7 +21,8 @@ using namespace vex;
 
 void pre_auton(void)
 {
-  sClamp.set(true);
+  sHood.set(false);
+  sHood2.set(false);
   Inertial.calibrate();
   while (Inertial.isCalibrating())
   { // pauses while calibrating IMU
@@ -61,7 +62,8 @@ void autonomous(void)
   allMotors.stop();
 }
 
-bool clamp = false;
+bool hood = false;
+bool hood2 = false;
 bool doink = false;
 bool door = false;
 bool upInt = false;
@@ -152,7 +154,7 @@ else if(Controller1.ButtonDown.pressing())
   mIntake3.spin(reverse,100,pct);
 }
 }
-
+/*
 void handleDoinky()
 {
   if (Controller1.ButtonLeft.pressing())
@@ -163,12 +165,15 @@ void handleDoinky()
     wait(240, msec);
   }
 }
-void handleClamp()
+  */
+void handleHood()
 {
   if (Controller1.ButtonB.pressing())
   {
-    clamp = !clamp; // Toggle clamp state
-    sClamp.set(clamp);
+    hood = !hood; // Toggle clamp state
+    hood2 = !hood2; // Toggle clamp2 state
+    sHood.set(hood);
+    sHood2.set(hood2);
     // Debounce delay to prevent multiple toggles
     wait(240, msec);
   }
@@ -189,9 +194,7 @@ void usercontrol(void)
     // handleTuner(); // *** DISABLE DURING COMPS ***
     // handleMacro();
     handleIntake();
-    handleClamp();
-
-    handleDoinky();
+    handleHood();
 
     vex ::wait(20, msec);
   }

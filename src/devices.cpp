@@ -26,7 +26,8 @@ motor_group rightMotors = motor_group(mBackRight, mMidRight, mFrontRight);      
 motor_group allMotors = motor_group(mBackLeft, mMidLeft, mFrontLeft, mBackRight, mMidRight, mFrontRight); // group of all drive train motors
 
 // Digital-out device definitions
-digital_out sClamp = digital_out(Brain.ThreeWirePort.B);
+digital_out sHood = digital_out(Brain.ThreeWirePort.B);
+digital_out sHood2 = digital_out(Brain.ThreeWirePort.A);
 digital_out doinker = digital_out(Brain.ThreeWirePort.C);
 
 digital_out sDoor = digital_out(Brain.ThreeWirePort.F);
