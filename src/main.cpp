@@ -113,7 +113,7 @@ void handleMacro()
       mIntake.spin(fwd, 100, pct);
       mIntake2.spin(fwd, 100, pct);
       mIntake3.spin(fwd, 100, pct);
-      if (ringCheck.objectDistance(inches) <= 1.5)
+      if (block.objectDistance(inches) <= 1.5)
       {
         count++;
       }

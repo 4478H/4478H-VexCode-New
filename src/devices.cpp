@@ -16,7 +16,7 @@ motor mMidRight = motor(PORT6, ratio6_1, false);
 motor mIntake = motor(PORT3, ratio18_1, false);
 motor mIntake2 = motor(PORT8, ratio18_1, false);
 motor mIntake3 = motor(PORT18, ratio18_1, true);
-distance ringCheck = distance(PORT17);
+distance blockCheck = distance(PORT17);
 inertial Inertial = inertial(PORT20);
 optical colorSens = optical(PORT19);
 
